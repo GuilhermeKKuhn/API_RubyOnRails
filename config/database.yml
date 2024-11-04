@@ -18,8 +18,3 @@ test:
   database: api_RubyOnRails_test
 
 
-production:
-  <<: *default
-  database: api_RubyOnRails_production
-  username: api_RubyOnRails
-  password: <%= ENV['API_RUBYONRAILS_DATABASE_PASSWORD'] %>
