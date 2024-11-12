@@ -43,7 +43,7 @@
   O projeto fica dividido da sequinte maneira:
 
   ```
-  app/
+  app/ # contem
   ```
   
        
