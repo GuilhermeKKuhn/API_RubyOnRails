@@ -41,9 +41,8 @@
 - Estrutura de pastas do projeto
 
   O projeto fica dividido da sequinte maneira:
-
-  ```
-  app/ # contem
-  ```
+  
+    - `app/` : Contém a lógica principal da aplicação dividida em subpastas para controladores, modelos, visualizações e outros componentes
+  
   
        
