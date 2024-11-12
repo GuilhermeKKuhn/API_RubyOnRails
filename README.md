@@ -42,7 +42,11 @@
 
   O projeto fica dividido da sequinte maneira:
   
-    - `app/` : Contém a lógica principal da aplicação dividida em subpastas para controladores, modelos, visualizações e outros componentes
-  
-  
+    - `app/`: Contém a lógica principal da aplicação dividida em subpastas para controladores, modelos, visualizações e outros componentes.
+    - `config/`: Armazena as configurações da aplicação, incluindo rotas, ambientes e inicializadores.
+    - `db/`: Inclui arquivos relacionados ao banco de dados.
+    - `lib/`: Contém códigos personalizados e módulos auxiliares.
+    - `public/`: Arquivos estáticos que podem ser acessados diretamente pelo servidor.
+    - `test/`: usado para testes da aplicação.
+    - `Gemfile`: Define as dependencias de gemas do projeto.
        
