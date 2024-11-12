@@ -38,6 +38,8 @@
     ```
     Esse comando inicia o servidor e se não ocorrer nenhum erro tudo está funcionando corretamente!
 
+  
+
 - Estrutura de pastas do projeto
 
   O projeto fica dividido da sequinte maneira:
