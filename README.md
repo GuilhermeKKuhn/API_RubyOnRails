@@ -4,7 +4,7 @@
 
 - Criação do projeto
   
-   Para a criação do projeto é necessário ter intalado na máquina:
+   Para a criação do projeto é necessário ter instalado na máquina:
 
      - Ruby (Linguagem de Programação)
      - OnRails (framework)
