@@ -1,5 +1,7 @@
 # README
 
-# RUBY ON RAILS
+# Desenvolvimento de API utilizando Ruby On Rails
 
-- CRIAÇÃO DO PROJETO
+- Criação do projeto
+
+    *PARA
