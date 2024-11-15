@@ -10,16 +10,16 @@
      - NodeJS
      - Yarn
  
-  Para iniciar o desenvolvimento da API é necessário utilizar o comando:
+    Para iniciar o desenvolvimento da API é necessário utilizar o comando:
 
      ```
      bash
      rails new "nomeDoProjeto" --api --databse==postgresql
      ```
     o comando "--api" faz com que o projeto criado seja para uma API, sendo configurado de forma otimizada e omitindo recursos como views do lado do servidor,
-    o comando "--database==postgresql" faz com que as configurações de banco de dados do sistema sejam criadas para o banco de dados especificado, caso não seja setado essas configurações o banco de dados padrão do projeto sera o Sqlite3
+    o comando "--database==postgresql" faz com que as configurações de banco de dados do sistema sejam criadas para o banco de dados especificado, caso não seja setado essas configurações o banco de dados padrão do           projeto sera o Sqlite3
 
-  apos navegar até a pasta do projeto criada é necessário utilizar o comando:
+    apos navegar até a pasta do projeto criada é necessário utilizar o comando:
 
     ```
     bash
@@ -27,9 +27,9 @@
     ```
     Esse comando busca a Gemfile para instalar as Gems do projeto, sendo o mesmo principio que dependencias em outros frameworks
 
-  Após esses comandos concluidos o projeto esta pronto para ser utilizado
+    Após esses comandos concluidos o projeto esta pronto para ser utilizado
 
-  Dentro do arquivo do projeto execute o comando:
+    Dentro do arquivo do projeto execute o comando:
 
     ```
     bash
@@ -41,7 +41,7 @@
 
 - Estrutura de pastas do projeto
 
-  O projeto fica dividido da sequinte maneira:
+    O projeto fica dividido da sequinte maneira:
   
     - `app/`: Contém a lógica principal da aplicação dividida em subpastas para controladores, modelos, visualizações e outros componentes.
       
@@ -58,7 +58,8 @@
     - `Gemfile`: Define as dependencias de gemas do projeto.
 
 
- - Criação de classes
+- Criação de classes
+
    Para a criação das classes utilizaremos o `scaffold` para a criação das classes de uma maneira mais rápida, o comando utilizado será:
 
    ```
@@ -67,22 +68,23 @@
    ```
    Esse comando ira criar a estrutura de classes completa da entidade criada, incluindo Models, Controllers e Rotas, além de criar as Views, se for um pojeto completo, como definimos que iriamos criar uma api o mesmo não    ira criar as classes de views.
 
-
 - Models
+  
   No pacote de Models da aplicação o Scaffold cria uma classe com o nome da entidade definida no comando da seguinte maneira:
   ```ruby
   class User < ApplicationRecord
   end
   ```
   Essa classe `User` herda da classe `AplicationRecord` que serve como classe base para todos os modelos da aplicação, ela herda de `ActiveRecord::Base`, que é a classe principal da ORM(Object-Relati
-onal Mapping) do Rails.
-```ruby
-class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
-end
-```
+  onal Mapping) do Rails.
+  ```ruby
+  class ApplicationRecord < ActiveRecord::Base
+    self.abstract_class = true
+  end
+  ```
 
 - Controllers
+  
   No pacote de Controllers da aplicação o Scaffold irá criar as classes de controllers com os metodos padrões de para ralização de requisições HTTP da seguinte forma:
 
   ```ruby
@@ -140,7 +142,30 @@ end
   Da mesma forma a classe Controller irá herdar de `AplicationController`que é uma classe que herda de `ActionController::API` uma classe base para todos os controladores do Rails, que está configurada para ser uma API.
 
 - Banco de dados
-  Dentro da pasta `config/` podemos encontrar uma  
+  
+  Dentro da pasta `config/` podemos encontrar um arquivo chamado `database.yml` que contém as configurações de banco de dados da aplicação
+
+  ```yml
+  default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  user: 
+  password: 
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+  development:
+    <<: *default
+    database: api_RubyOnRails_development
+
+  test:
+    <<: *default
+    database: api_RubyOnRails_test
+  ```
+  
 
 
 
