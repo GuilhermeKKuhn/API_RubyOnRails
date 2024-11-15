@@ -65,10 +65,28 @@
    bash
    rails generate scaffold NomeDaEntidade campo1:tipo campo2:tipo campo3:tipo
    ```
-   Esse comando ira criar a estrutura de classes completa da entidade criada, incluindo Models, Controllers e Rotas, além de criar as Views, se for um pojeto completo, como definimos que iriamos criar uma api o mesmo não ira criar as classes de views.
+   Esse comando ira criar a estrutura de classes completa da entidade criada, incluindo Models, Controllers e Rotas, além de criar as Views, se for um pojeto completo, como definimos que iriamos criar uma api o mesmo não    ira criar as classes de views.
 
+
+- Models
+  No pacote de Models da aplicação o Scaffold cria uma classe com o nome da entidade definida no comando da seguinte maneira:
+  ```ruby
+  class User < ApplicationRecord
+  end
+  ```
+  Essa classe `User` herda da classe `AplicationRecord` que serve como classe base para todos os modelos da aplicação, ela herda de `ActiveRecord::Base`, que é a classe principal da ORM(Object-Relati
+onal Mapping) do Rails.
 ```ruby
-class UsersController < ApplicationController
+class ApplicationRecord < ActiveRecord::Base
+  self.abstract_class = true
+end
+```
+
+- Controllers
+  No pacote de Controllers da aplicação o Scaffold irá criar as classes de controllers com os metodos padrões de para ralização de requisições HTTP da seguinte forma:
+
+  ```ruby
+  class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
@@ -118,7 +136,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:nome, :cpf, :telefone, :cidade, :cep)
     end
-end
+  ```
+  Da mesma forma a classe Controller irá herdar de `AplicationController`que é uma classe que herda de `ActionController::API` uma classe base para todos os controladores do Rails, que está configurada para ser uma API.
+
+- Banco de dados
+  Dentro da pasta `config/` podemos encontrar uma  
+
 
 
    
