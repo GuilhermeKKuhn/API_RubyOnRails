@@ -56,4 +56,7 @@
     - `test/`: usado para testes da aplicação.
       
     - `Gemfile`: Define as dependencias de gemas do projeto.
-       
+
+
+ - Criação de classes
+   Para a criação das classes utilizaremos o `scaffold
