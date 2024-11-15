@@ -59,4 +59,12 @@
 
 
  - Criação de classes
-   Para a criação das classes utilizaremos o `scaffold
+   Para a criação das classes utilizaremos o `scaffold` para a criação das classes de uma maneira mais rápida, o comando utilizado será:
+
+   ```
+   bash
+   rails generate scaffold NomeDaEntidade campo1:tipo campo2:tipo campo3:tipo
+   ```
+   Esse comando ira criar a estrutura de classes completa da entidade criada, incluindo Models, Controllers e Rotas, além de criar as Views, se for um pojeto completo, como definimos que iriamos criar uma api o mesmo não ira criar as classes de views.
+
+   
