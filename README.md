@@ -165,8 +165,75 @@
     <<: *default
     database: api_RubyOnRails_test
   ```
-  
+  Nesse arquivos podemos criar os databases que utilizaremos no projeto, como no exemplo temos o database `development` e o `test`
 
+  Passando para a pasta `db/` temos o arquivo `schema.rb` que contem as informações das tabelas dos bancos de dados sendo sempre a última versão compilada do banco de dados com as tabelas atualizadas
+
+  ```ruby
+  ActiveRecord::Schema.define(version: 2024_11_05_233242) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "livros", force: :cascade do |t|
+    t.string "titulo"
+    t.string "descricao"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "nome"
+    t.string "cpf"
+    t.string "telefone"
+    t.string "cidade"
+    t.string "cep"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+  ```
+  Ainda nesse diretorio temos a pasta `migrate` essa pasta contém todos os arquivos criados para o banco de dados e todas as versões ja utilizadas, sendo criadas sempre que uma nova entidade é definida
+
+  ```ruby
+  class CreateUsers < ActiveRecord::Migration[6.1]
+  def change
+    create_table :users do |t|
+      t.string :nome
+      t.string :cpf
+      t.string :telefone
+      t.string :cidade
+      t.string :cep
+
+      t.timestamps
+    end
+  ```
+  Sempre que uma entidade é criada é necessário realizar o comando:
+
+  ```
+  bash
+  rails db: migrate
+  ```
+  Esse comando aplica as migrações do banco de dados pendentes, sendo uma maneira de alterar a estrutura do banco de forma controlada e versionada.
+
+  Para a criação do banco a primeira vez que o projeto for executado utilizaremos o comando:
+
+  ```
+  bash
+  rails db: create
+  ```
+
+- Rotas
+  
+  Dentro do diretorio `config/` temos o arquivo `routes.rb`:
+
+  ```ruby
+  Rails.application.routes.draw do
+    resources :livros
+    resources :users
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  end
+  ```
+  Esse arquivo é atualizado automaticamente sempre que criamos uma nova entidade utilizando o Scaffold e contém as rotas da aplicação.
 
 
    
