@@ -67,7 +67,7 @@
    ```
    Esse comando ira criar a estrutura de classes completa da entidade criada, incluindo Models, Controllers e Rotas, além de criar as Views, se for um pojeto completo, como definimos que iriamos criar uma api o mesmo não ira criar as classes de views.
 
-```
+```ruby
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
@@ -119,7 +119,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:nome, :cpf, :telefone, :cidade, :cep)
     end
 end
-```
 
 
    
